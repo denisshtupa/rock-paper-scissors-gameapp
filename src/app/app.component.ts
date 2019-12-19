@@ -6,15 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title = 'game-app';
-  public scores = [0, 0];
-  public enemySelected = -1;
+  public title : string= 'game-app';
+  public scores: Array<any> = [0, 0];
+  public enemyChoosing = -1;
 
-  private playerSelected = -1;
-  private loading = false;
-  private isResultShow = false;
-  private theResult = 0;
-  private weapons = [
+  private playerChoosing: any = -1;
+  private loading: boolean = false;
+  private isShowingResult: boolean = false;
+  private theResult : any = 0;
+  private weapons : Array<string> = [
     'rock',
     'paper',
     'scissors'
@@ -29,14 +29,14 @@ export class AppComponent {
     // the user to spam the button.
     if (this.loading) return;
     this.loading = true;
-    this.playerSelected = weapon;
+    this.playerChoosing = weapon;
 
     setTimeout(() => {
       this.loading = false;
       const randomNum = Math.floor(Math.random() * 3);
-      this.enemySelected = randomNum;
+      this.enemyChoosing = randomNum;
       this.checkResult();
-      this.isResultShow = true;
+      this.isShowingResult = true;
     }, Math.floor(Math.random() * 500) + 900);
   }
 
@@ -45,8 +45,8 @@ export class AppComponent {
   }
 
   private checkResult(): void {
-    const playerPick = this.playerSelected;
-    const enemyPick = this.enemySelected;
+    const playerPick = this.playerChoosing;
+    const enemyPick = this.enemyChoosing;
     if (playerPick == enemyPick) {
       this.theResult = 2;
     }
