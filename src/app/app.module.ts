@@ -10,7 +10,9 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatProgressSpinner,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
@@ -29,6 +31,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MatMenuModule,
     MatIconModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     AngularFontAwesomeModule
   ],
   exports: [
@@ -36,7 +39,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinner
   ],
 
   providers: [],

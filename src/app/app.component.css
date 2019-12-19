@@ -44,3 +44,18 @@
 .spacer {
   flex: 1;
 }
+
+.selectedWeapon {
+  color: red;
+}
+
+.flex-container {
+    padding: 50px;
+    position: relative;
+    left: 550px;
+}
+
+.enemy-position {
+    position:  relative;
+    left: 253px;
+}
