@@ -1,0 +1,136 @@
+<!-- <mat-toolbar color="primary">
+    <button mat-raised-button color="basic" style="margin:10px;" router>Home</button>
+  
+  
+    <button mat-raised-button (click)="triggerHistoryPage()">Game History</button>
+  </mat-toolbar> -->
+
+<div class="jumbotron container-fluid">
+
+
+    <div class="choose-mode">
+        <button (click)="changeModeGame('player')" mat-raised-button color="primary" style="margin-right:15px;">
+            Player 1 vs Computer
+        </button>
+        <button (click)="changeModeGame('computer')" mat-raised-button color="accent">
+            Computer vs Computer
+        </button>
+    </div>
+
+    <div class="content">
+
+        <ng-container *ngIf="this.isPlayerMode">
+            <mat-card>
+                <mat-card-content>
+                    <div class="content1">
+                        <h2>You</h2>
+                        <button mat-fab color="primary" class="score">{{ scores[0] }}</button>
+                    </div>
+                    <h4> Choose your weapon: </h4>
+                    <div class="content2">
+                        <i (click)="pickPlayer(0)" [ngClass]="{'selectedWeapon':(playerChoosing === 0)}"
+                            class="fa fa-hand-rock-o"></i>
+                        <i (click)="pickPlayer(1)" [ngClass]="{'selectedWeapon':(playerChoosing === 1)}"
+                            class="fa fa-hand-paper-o"></i>
+                        <i (click)="pickPlayer(2)" [ngClass]="{'selectedWeapon':(playerChoosing === 2)}"
+                            class="fa fa-hand-scissors-o"></i>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-content>
+                    <div class="content1">
+                        <h2>Computer</h2>
+                        <button mat-fab color="accent" class="score">{{ scores[1] }}</button>
+
+                    </div>
+                    <br><br>
+
+                    <div *ngIf="enemyChoosing !== -1" class="enemy-position">
+                        <i *ngIf="enemyChoosing === 0" class="fa fa-hand-rock-o"></i>
+                        <i *ngIf="enemyChoosing === 1" class="fa fa-hand-paper-o"></i>
+                        <i *ngIf="enemyChoosing === 2" class="fa fa-hand-scissors-o"></i>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </ng-container> <!-- end of Player vs Computer section-->
+
+        <ng-container *ngIf="!this.isPlayerMode">
+            <mat-card>
+                <mat-card-content>
+                    <div class="content1">
+                        <h2>Computer one</h2>
+                        <button mat-fab color="primary" class="score">{{ computerScores[0] }}</button>
+                    </div>
+                    <div class="content2">
+                        <i [ngClass]="{'selectedWeapon':(computerOneChoose === 0)}" class="fa fa-hand-rock-o"></i>
+                        <i [ngClass]="{'selectedWeapon':(computerOneChoose === 1)}" class="fa fa-hand-paper-o"></i>
+                        <i [ngClass]="{'selectedWeapon':(computerOneChoose === 2)}" class="fa fa-hand-scissors-o"></i>
+                    </div>
+                    <button (click)="pickComputer()" mat-raised-button color="primary"
+                        title="Press this button to start a round of game for computers.">Start round for computers
+                        game</button>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-content>
+                    <div class="content1">
+                        <h2>Computer two</h2>
+                        <button mat-fab color="accent" class="score">{{ computerScores[1] }}</button>
+                    </div>
+                    <br><br>
+
+                    <div *ngIf="computerTwoChoose !== -1" class="enemy-position">
+                        <i *ngIf="computerTwoChoose === 0" class="fa fa-hand-rock-o"></i>
+                        <i *ngIf="computerTwoChoose === 1" class="fa fa-hand-paper-o"></i>
+                        <i *ngIf="computerTwoChoose === 2" class="fa fa-hand-scissors-o"></i>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </ng-container><!-- end of Computer vs Computer section-->
+
+        <ng-container>
+            <div *ngIf="!loading && isShowingResult" class="flex-container" style="flex-direction: column;">
+
+                <div *ngIf="this.isPlayerMode" [ngSwitch]="thePlayerResult">
+                    <ng-template [ngSwitchCase]="0">
+                        <h2> You're the winner! </h2>
+                    </ng-template>
+                    <ng-template [ngSwitchCase]="1">
+                        <h2> You lose. </h2>
+                    </ng-template>
+                    <ng-template [ngSwitchCase]="2">
+                        <h2>It's a tie! </h2>
+                    </ng-template>
+                    <ng-template ngSwitchDefault> </ng-template>
+                </div>
+
+                <div *ngIf="!this.isPlayerMode" [ngSwitch]="theComputerResult">
+                    <ng-template [ngSwitchCase]="0">
+                        <h2> Computer one wins! </h2>
+                    </ng-template>
+                    <ng-template [ngSwitchCase]="1">
+                        <h2> Computer two wins! </h2>
+                    </ng-template>
+                    <ng-template [ngSwitchCase]="2">
+                        <h2>It's a tie! </h2>
+                    </ng-template>
+                    <ng-template ngSwitchDefault> </ng-template>
+                </div>
+
+                <p> Pick again to continue or </p>
+                <button *ngIf="this.isPlayerMode" (click)="resetPlayerGame()" mat-raised-button color="primary"> Reset
+                    score</button>
+                <button *ngIf="!this.isPlayerMode" (click)="resetComputerGame()" mat-raised-button color="primary">Reset
+                    computers score</button>
+            </div>
+
+            <div *ngIf="loading" class="flex-container">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-container>
+
+
+
+    </div>
+</div>

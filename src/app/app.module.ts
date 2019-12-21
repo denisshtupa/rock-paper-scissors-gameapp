@@ -14,11 +14,15 @@ import {
   MatProgressSpinnerModule
 } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { HistoryComponent } from './history of games/history.component';
+import { GameComponent } from './game/game.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameComponent,
+    HistoryComponent
   ],
   imports: [
     CommonModule,

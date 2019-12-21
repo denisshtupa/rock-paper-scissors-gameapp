@@ -1,0 +1,73 @@
+.content {
+    margin: 40px;
+    display: grid;
+    width: 70%;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .content1 {
+    display: grid;
+    margin: 20px;
+    padding: 20px;
+    grid-template-columns: 2fr 1fr;
+  }
+  
+  .content2 {
+    display: grid;
+    margin: 20px;
+    padding: 20px;
+  
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 4 auto;
+  }
+  
+  .score {
+    margin-top: .5em;
+    margin-left: 2em;
+    font-size: 1.5em
+  }
+  
+  .fa {
+    cursor: pointer;
+    font-size: 5em;
+  }
+  
+  .toolbar {
+    height: 60px;
+    margin: -8px;
+    display: flex;
+    align-items: center;
+    background-color: #3b19d2;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .spacer {
+    flex: 1;
+  }
+  
+  .selectedWeapon {
+    color: red;
+  }
+  
+  .flex-container {
+      padding: 50px;
+      position: relative;
+      left: 70%;
+  }
+  
+  .enemy-position {
+      position: relative;
+      left: 253px;
+  }
+  
+  .choose-mode {
+      margin-left: 35px;
+      padding-left: 35px;
+  }
+  
