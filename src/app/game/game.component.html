@@ -1,10 +1,3 @@
-<!-- <mat-toolbar color="primary">
-    <button mat-raised-button color="basic" style="margin:10px;" router>Home</button>
-  
-  
-    <button mat-raised-button (click)="triggerHistoryPage()">Game History</button>
-  </mat-toolbar> -->
-
 <div class="jumbotron container-fluid">
 
 
@@ -119,10 +112,8 @@
                 </div>
 
                 <p> Pick again to continue or </p>
-                <button *ngIf="this.isPlayerMode" (click)="resetPlayerGame()" mat-raised-button color="primary"> Reset
-                    score</button>
-                <button *ngIf="!this.isPlayerMode" (click)="resetComputerGame()" mat-raised-button color="primary">Reset
-                    computers score</button>
+                <button *ngIf="this.isPlayerMode" (click)="resetPlayerGame()" mat-raised-button color="primary"> Start new game</button>
+                <button *ngIf="!this.isPlayerMode" (click)="resetComputerGame()" mat-raised-button color="primary">Start new game</button>
             </div>
 
             <div *ngIf="loading" class="flex-container">
