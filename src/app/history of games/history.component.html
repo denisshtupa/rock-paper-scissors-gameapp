@@ -1,5 +1,58 @@
-
 <div class="jumbotron container-fluid">
-    <h2>history</h2>
-    <p> ToDO: show history</p>
+
+    <div *ngIf="this.playerHistory && this.playerHistory.length != 0" class="container">
+        <h2>Player vs. Computer</h2>
+        <p>We are showing to you a history of results between Player and Computer.</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="column1">Games</th>
+                    <th class="column2">Player</th>
+                    <th class="column3">Computer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let game of playerHistory; let i= index">
+                    <td>Game {{i + 1}}</td>
+                    <td [ngClass]="compareResults(game.player, game.computer)">{{game.player}}</td>
+                    <td [ngClass]="compareResults(game.computer, game.player)">{{game.computer}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button (click)="clearHistory('player')" mat-raised-button color="primary" style="margin-left:55px;">
+            Clear player vs. computer history
+        </button>
+        <hr/>
+    </div><!-- History beetwen player and computer-->
+
+    <div *ngIf="this.computerHistory && this.computerHistory.length != 0 " class="container">
+        <h2>Computer one vs. Computer two</h2>
+        <p>We are showing to you a history of results between Computer one and Computer two.</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="column1">Games</th>
+                    <th class="column2">Computer one</th>
+                    <th class="column3">Computer two</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let game of computerHistory; let i= index">
+                    <td>Game {{i + 1}}</td>
+                    <td [ngClass]="compareResults(game.computerOne, game.computerTwo)">{{game.computerOne}}</td>
+                    <td [ngClass]="compareResults(game.computerTwo, game.computerOne)">{{game.computerTwo}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="clearHistory('com')" mat-raised-button color="primary" style="margin-left:55px;">
+            Clear computer 1 vs. computer 2 history
+        </button>
+    </div><!-- History beetwen two computers -->
+
+    <div *ngIf="this.computerHistory && this.computerHistory.length == 0 && this.playerHistory && this.playerHistory.length == 0" class="container">
+        <h2>Nothing to show.</h2>
+        <p>Please, try to play a game first, by clicking <a [routerLink]="['']">here</a>.</p>
+    </div>
+
 </div>

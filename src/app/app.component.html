@@ -1,22 +1,13 @@
-<!-- <div class="toolbar" role="banner">
-  <img width="40" />
-  <h3>ROCK PAPER SCISSORS Game</h3>
-  <div class="spacer"></div>
-</div> -->
-
-<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" /> -->
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand">Rock Scissors Paper</a>
     </div>
     <ul class="nav navbar-nav">
-      <li [routerLinkActive]="['active']" ><a [routerLink]="['game']">Game</a></li>
-      <li [routerLinkActive]="['active']"><a [routerLink]="['history']">History</a></li>
+      <li [routerLinkActive]="['active']"><a [routerLink]="['game']">Time to play</a></li>
+      <li [routerLinkActive]="['active']"><a [routerLink]="['history']">History of games</a></li>
     </ul>
   </div>
-</nav><br/>
-
+</nav><br />
 
 <router-outlet></router-outlet>
