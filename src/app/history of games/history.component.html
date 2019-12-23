@@ -50,7 +50,7 @@
         </button>
     </div><!-- History beetwen two computers -->
 
-    <div *ngIf="this.computerHistory && this.computerHistory.length == 0 && this.playerHistory && this.playerHistory.length == 0" class="container">
+    <div *ngIf="this.computerHistory.length == 0 && this.playerHistory.length == 0" class="container">
         <h2>Nothing to show.</h2>
         <p>Please, try to play a game first, by clicking <a [routerLink]="['']">here</a>.</p>
     </div>

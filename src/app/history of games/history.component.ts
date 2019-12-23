@@ -12,8 +12,8 @@ export class HistoryComponent implements OnInit {
 
 
   constructor() {
-    this.playerHistory = JSON.parse(localStorage.getItem('playerResults'));
-    this.computerHistory = JSON.parse(localStorage.getItem('computerResults'));
+    JSON.parse(localStorage.getItem('playerResults')) ? this.playerHistory = JSON.parse(localStorage.getItem('playerResults')) : this.playerHistory = [];
+    JSON.parse(localStorage.getItem('computerResults')) ? this.computerHistory = JSON.parse(localStorage.getItem('computerResults')) : this.computerHistory = [];
   }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class HistoryComponent implements OnInit {
       return 'winner center-align'
     else if (firstPlayer < secondPlayer)
       return 'loser center-align'
-    else 
+    else
       return 'equal center-align';
   }
 
@@ -37,7 +37,7 @@ export class HistoryComponent implements OnInit {
       this.computerHistory = [];
       localStorage.setItem('computerResults', JSON.stringify([]));
     }
-      
+
   }
 
 }
