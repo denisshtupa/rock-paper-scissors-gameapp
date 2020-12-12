@@ -17,12 +17,12 @@ export class GameComponent {
     public computerTwoChoose: any = -1;
     public isPlayerMode: boolean = true;
 
-    private playerChoosing: any = -1;
-    private loading: boolean = false;
-    private isShowingResult: boolean = false;
-    private thePlayerResult: number = 0;
-    private theComputerResult: number = 0;
-    private weapons: Array<string> = [
+    public playerChoosing: any = -1;
+    public loading: boolean = false;
+    public isShowingResult: boolean = false;
+    public thePlayerResult: number = 0;
+    public theComputerResult: number = 0;
+    public weapons: Array<string> = [
         'rock',
         'paper',
         'scissors'

@@ -37,7 +37,6 @@ export class HistoryComponent implements OnInit {
       this.computerHistory = [];
       localStorage.setItem('computerResults', JSON.stringify([]));
     }
-
   }
 
 }

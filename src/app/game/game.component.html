@@ -3,7 +3,7 @@
 
     <div class="choose-mode">
         <button (click)="changeModeGame('player')" mat-raised-button color="primary" style="margin-right:15px;">
-            Player 1 vs Computer
+            Player vs Computer
         </button>
         <button (click)="changeModeGame('computer')" mat-raised-button color="accent">
             Computer vs Computer
@@ -20,7 +20,7 @@
                         <button mat-fab color="primary" class="score">{{ scores[0] }}</button>
                     </div>
                     <h4> Choose your weapon: </h4>
-                    <div class="content2">
+                    <div class="content2" id="player-area">
                         <i (click)="pickPlayer(0)" [ngClass]="{'selectedWeapon':(playerChoosing === 0)}"
                             class="fa fa-hand-rock-o"></i>
                         <i (click)="pickPlayer(1)" [ngClass]="{'selectedWeapon':(playerChoosing === 1)}"
@@ -85,38 +85,38 @@
         <ng-container>
             <div *ngIf="!loading && isShowingResult" class="flex-container" style="flex-direction: column;">
 
-                <div *ngIf="this.isPlayerMode" [ngSwitch]="thePlayerResult">
+                <div *ngIf="this.isPlayerMode" [ngSwitch]="thePlayerResult" [style.margin-left]="'40px'">
                     <ng-template [ngSwitchCase]="0">
-                        <h2> You're the winner! </h2>
+                        <h2 [style.color]="'green'"> You win! </h2>
                     </ng-template>
                     <ng-template [ngSwitchCase]="1">
-                        <h2> You lose. </h2>
+                        <h2 [style.color]="'red'"> You lose! </h2>
                     </ng-template>
                     <ng-template [ngSwitchCase]="2">
-                        <h2>It's a tie! </h2>
+                        <h2 [style.color]="'blue'">It's a tie! </h2>
                     </ng-template>
                     <ng-template ngSwitchDefault> </ng-template>
                 </div>
 
-                <div *ngIf="!this.isPlayerMode" [ngSwitch]="theComputerResult">
+                <div *ngIf="!this.isPlayerMode" [ngSwitch]="theComputerResult" [style.margin-left]="'30px'">
                     <ng-template [ngSwitchCase]="0">
-                        <h2> Computer one wins! </h2>
+                        <h3 [style.color]="'green'"> Com one wins! </h3>
                     </ng-template>
                     <ng-template [ngSwitchCase]="1">
-                        <h2> Computer two wins! </h2>
+                        <h3 [style.color]="'red'"> Comp two wins! </h3>
                     </ng-template>
                     <ng-template [ngSwitchCase]="2">
-                        <h2>It's a tie! </h2>
+                        <h2 [style.color]="'blue'" [style.padding-left]="'10px'">It's a tie! </h2>
                     </ng-template>
                     <ng-template ngSwitchDefault> </ng-template>
                 </div>
 
                 <p> Pick again to continue or </p>
-                <button *ngIf="this.isPlayerMode" (click)="resetPlayerGame()" mat-raised-button color="primary"> Start new game</button>
-                <button *ngIf="!this.isPlayerMode" (click)="resetComputerGame()" mat-raised-button color="primary">Start new game</button>
+                <button *ngIf="this.isPlayerMode" [style.margin-left]="'33px'" (click)="resetPlayerGame()" mat-raised-button color="primary"> Start new game</button>
+                <button *ngIf="!this.isPlayerMode" [style.margin-left]="'33px'" (click)="resetComputerGame()" mat-raised-button color="primary">Start new game</button>
             </div>
 
-            <div *ngIf="loading" class="flex-container">
+            <div *ngIf="loading" class="flex-container" [style.margin-left]="'40px'">
                 <mat-spinner></mat-spinner>
             </div>
         </ng-container>

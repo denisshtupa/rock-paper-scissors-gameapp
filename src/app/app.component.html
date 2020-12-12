@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand">Rock Scissors Paper</a>
+      <a class="navbar-brand" [style.cursor]="'pointer'" [routerLink]="'/game'">Rock Scissors Paper</a>
     </div>
     <ul class="nav navbar-nav">
       <li [routerLinkActive]="['active']"><a [routerLink]="['game']">Time to play</a></li>
